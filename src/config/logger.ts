@@ -8,7 +8,7 @@ const logger = winston.createLogger({
 
   // Define default metadata to be included with all log entries
   defaultMeta: {
-    serviceName: 'auth-service', // Identify the service generating the log
+    serviceName: 'catelog-service', // Identify the service generating the log
   },
 
   // Define the format of log entries

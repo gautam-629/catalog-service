@@ -1,16 +1,11 @@
 import express, { NextFunction, Request, Response } from 'express';
 import createHttpError, { HttpError } from 'http-errors';
 import logger from './config/logger';
-
+import config from 'config'
 let app = express();
 
-app.use('/', (req, res, next) => {
-  // const err=createHttpError(401,'Unauthorized')
-  next(createHttpError(401, 'Unauthorized'));
-  return;
-  // throw err;
-
-  res.send('Welcome to the Express app');
+app.get('/', (req, res, next) => {
+       res.json({message:config.get('server.port')})
 });
 
 app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {

@@ -19,6 +19,6 @@ export default [
     rules: {
       'no-console': 'error',
     },
-    ignores: ['node_modules', 'dist'],
+    ignores: ['node_modules', 'dist', 'config'],
   },
 ];

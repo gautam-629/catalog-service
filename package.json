@@ -1,5 +1,5 @@
 {
-  "name": "express-app-template",
+  "name": "catelgo-service",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "tsc",
     "format:fix": "npx prettier . --write",
     "format:check": "npx prettier . --check",
-    "dev": "tsx watch src/server.ts",
+    "dev": "cross-env NODE_ENV=development tsx watch src/server.ts",
     "lint:check": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "jest --runInBand",
@@ -28,9 +28,11 @@
   "homepage": "https://github.com/gautam-629/express-app-template#readme",
   "devDependencies": {
     "@eslint/js": "^9.16.0",
+    "@types/config": "^3.3.5",
     "@types/express": "^5.0.0",
     "@types/http-errors": "^2.0.4",
     "@types/jest": "^29.5.14",
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.10.1",
     "@types/supertest": "^6.0.2",
     "eslint": "^9.16.0",
@@ -52,9 +54,13 @@
     ]
   },
   "dependencies": {
+    "config": "^3.3.12",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.7",
     "express": "^4.21.1",
     "http-errors": "^2.0.0",
+    "js-yaml": "^4.1.0",
+    "uuid": "^11.0.5",
     "winston": "^3.17.0"
   }
 }
