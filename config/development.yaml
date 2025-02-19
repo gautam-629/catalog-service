@@ -1,2 +1,4 @@
 server:
   port: 5000
+database:
+  url:  mongodb+srv://gautam629:wRnCMb6VkXHDUFcg@cluster0.iq1s9uw.mongodb.net/
