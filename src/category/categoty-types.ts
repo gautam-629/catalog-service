@@ -18,3 +18,9 @@ export interface Attributes{
     attributes:Attributes[]
 
 }
+
+
+export enum ROLE{
+   ADMIN="admin",
+   MANAGER="manager"
+}

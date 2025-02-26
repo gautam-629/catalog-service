@@ -1,5 +1,7 @@
 server:
-  port: 5000
+  port: 5001
 database:
   # url:  mongodb+srv://gautam629:wRnCMb6VkXHDUFcg@cluster0.iq1s9uw.mongodb.net/
   url:  mongodb://localhost:27017
+auth:
+  jwksUri:  http://localhost:5000/.well-known/jwks.json

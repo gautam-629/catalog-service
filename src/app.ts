@@ -1,25 +1,13 @@
-import express, { NextFunction, Request, Response } from 'express';
-import { HttpError } from 'http-errors';
-import logger from './config/logger';
+import express from 'express';
 import categoryRouter from './category/category-router'
+import { globalErrorHandler } from './common/middleware/global-error-handler';
+import cookieParser from 'cookie-parser';
 let app = express();
 
 app.use(express.json())
+app.use(cookieParser())
 app.use('/categories',categoryRouter)
 
-app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
-  logger.error(err.message);
-  const statusCode = err.statusCode || 500;
-  res.status(statusCode).json({
-    error: [
-      {
-        type: err.name,
-        name: err.name,
-        path: '',
-        location: '',
-      },
-    ],
-  });
-});
+app.use(globalErrorHandler)
 
 export default app;

@@ -27,6 +27,6 @@ export class CategoryController{
 
         this.logger.info(`Created category`,{id:category.id})
 
-           res.json({message:'success'})
+           res.json({categoryId:category.id})
     }
 }
