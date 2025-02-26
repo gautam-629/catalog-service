@@ -1,12 +1,11 @@
 import express, { NextFunction, Request, Response } from 'express';
-import createHttpError, { HttpError } from 'http-errors';
+import { HttpError } from 'http-errors';
 import logger from './config/logger';
-import config from 'config'
+import categoryRouter from './category/category-router'
 let app = express();
 
-app.get('/', (req, res, next) => {
-       res.json({message:config.get('server.port')})
-});
+app.use(express.json())
+app.use('/categories',categoryRouter)
 
 app.use((err: HttpError, req: Request, res: Response, next: NextFunction) => {
   logger.error(err.message);

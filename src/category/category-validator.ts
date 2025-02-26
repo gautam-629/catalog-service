@@ -12,8 +12,8 @@ export default [
     body("priceConfiguration.*.priceType")
         .exists()
         .withMessage("Price type is required")
-        .custom((value: "base" | "aditional") => {
-            const validKeys = ["base", "aditional"];
+        .custom((value: "base" | "adiitional") => {
+            const validKeys = ["base", "adiitional"];
             if (!validKeys.includes(value)) {
                 throw new Error(
                     `${value} is invalid attribute for priceType field. Possible values are: [${validKeys.join(
