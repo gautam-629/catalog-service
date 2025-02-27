@@ -11,6 +11,8 @@ export class CategoryController{
         private logger:Logger
     ){
         this.create=this.create.bind(this)
+        this.getOne=this.getOne.bind(this)
+        this.index=this.index.bind(this)
     }
 
   async  create(req:Request,res:Response,next:NextFunction){
@@ -28,5 +30,24 @@ export class CategoryController{
         this.logger.info(`Created category`,{id:category.id})
 
            res.json({categoryId:category.id})
+    }
+
+   async getOne(req:Request,res:Response,next:NextFunction){
+        const  {id} =  req.params;
+
+       const category=  await this.categoryService.getOne(id)
+
+       this.logger.info(`Getting Category List`)
+
+       res.json(category)
+    }
+
+    async index(req:Request,res:Response,next:NextFunction){
+
+       const categorys= await this.categoryService.getAll()
+
+       this.logger.info(`Getting Category List`)
+
+       res.json(categorys)
     }
 }

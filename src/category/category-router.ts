@@ -17,5 +17,9 @@ const categoryController=new CategoryController(categoryService,logger);
 
 router.post('/',categoryValidator,authenticate,canAccess([ROLE.ADMIN]) , asyncWrapper(categoryController.create))
 
+router.get('/:id',asyncWrapper(categoryController.getOne))
+
+router.get('/',asyncWrapper(categoryController.index))
+
 
 export default router
