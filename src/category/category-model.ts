@@ -46,4 +46,4 @@ const categoryschema=new mongoose.Schema<Category>({
    attributes:[attributesSchema]
 })
 
-export default mongoose.model('category',categoryschema)
+export default mongoose.model('Category',categoryschema)
