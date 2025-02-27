@@ -16,4 +16,18 @@ export  class CategoryService{
   async getAll(){
         return categoryModel.find()
   }
+
+  async update(
+   categoryId: string,
+   updateData: Partial<Category>,
+): Promise<({ _id: string } & Category) | null> {
+   return await categoryModel.findByIdAndUpdate(
+       categoryId,
+       { $set: updateData },  // Only updates the specified fields
+       { new: true },         // Returns the updated document
+   );
 }
+
+}
+
+

@@ -21,5 +21,6 @@ router.get('/:id',asyncWrapper(categoryController.getOne))
 
 router.get('/',asyncWrapper(categoryController.index))
 
+router.patch('/:id',asyncWrapper(categoryController.update))
 
 export default router
